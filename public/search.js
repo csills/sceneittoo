@@ -28,7 +28,8 @@ $(function(){
 			finalHTML += '<div class="card-body">';
 			finalHTML += '<h5 class="card-title">'+ currentMovie.Title +'</h5>';
 			finalHTML += '<p class="card-text">'+ currentMovie.Year +'</p>';
-			finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Add</button>';
+            finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Ain\'t Scene it</button>';
+            finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Scene It</button>';
 			finalHTML += '</div>';
 			finalHTML += '</div>';
 		});
@@ -36,27 +37,31 @@ $(function(){
 	}
 
 
-	// Setting up the click listener on the movie cards
+	// Setting up the click listener on 'Ain't Scene It" button
 	$('.movies-container').on('click', 'button', function(){
 		let imdbID = $(this).data('id');
-		$(this).html('Added');
+		$(this).html('Ain\'t Scene it');
 		$(this).toggleClass('btn-success');
-		
 		
 		let movie = movieData.find(function(currentMovie){
 			return currentMovie.imdbID == imdbID;	
 	});
 
-		let watchlistJSON = localStorage.getItem('watchlist');
-		let watchlist = JSON.parse(watchlistJSON);
-		if (watchlist == null) {
-			watchlist = [];
-		}
+	// Add movie to table	
+        
+
+
+        // Setting up the click listener on 'Scene It" button
+	$('.movies-container').on('click', 'button', function(){
+		let imdbID = $(this).data('id');
+		$(this).html('Scene It');
+		$(this).toggleClass('btn-success');
 		
-		watchlist.push(movie);
-		watchlistJSON = JSON.stringify(watchlist);
-		localStorage.setItem('watchlist', watchlistJSON);
-		});
+		let movie = movieData.find(function(currentMovie){
+			return currentMovie.imdbID == imdbID;	
+	});
+
+	// Add movie to table
 
 	
 
