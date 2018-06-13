@@ -46,7 +46,13 @@ $(function(){
 		
 		let movie = movieData.find(function(currentMovie){
 			return currentMovie.imdbID == imdbID;	
+
+		
+
 	});
+
+	// find or create
+	// user data
 
     // Add movie to table	
     //    - check to see if the movie is in the movie table, 
@@ -56,6 +62,27 @@ $(function(){
     // - check to see if the movie is in the user table, 
     //   -if not, add to user table
     //  - if it does exist, alert ("Already added to your "Ain't Scene It" list")
+
+// /api/sceneit  passes through the data
+
+
+	app.post('/create', (req, res) => {
+		Movie.create({
+            title: currentMovie.Title,
+            imdbID: currentMovie.imdbID,
+            mpaaRating: currentMovie.Rated,
+            released: currentMovie.Released,
+            runtime: currentMovie.Runtime,
+            genre: currentMovie.Genre,
+            director: currentMovie.Director,
+            writer: currentMovie.Writer,
+            actors: currentMovie.Actors,
+            plot: currentMovie.Plot,
+            poster: currentMovie.Poster,
+            imdbRating: currentMovie.imdbRating,
+		});
+	});
+
 
     connection.sync().then(function() {
         Movie.create({
