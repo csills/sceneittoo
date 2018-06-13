@@ -8,7 +8,10 @@ const sequelize = new Sequelize('postgress://postgres@localhost:5432/sceneittoo'
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const setupAuth = ('./auth');
+
+
+const setupAuth = require('./routes/auth');
+
 
 
 var app = express();
