@@ -2,6 +2,7 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser')
+const models = require('../models')
 
 const setupAuth = (app) => {
     // 1 set up cookie middleware
@@ -10,19 +11,46 @@ const setupAuth = (app) => {
     // 2 set up session middleware
     // ASK LACLAN ABOUT THIS SECURITY !ELEVEN!
     app.use(session({
-        secret: 'ilywamh4p'
+        secret: 'ilywamh4p',
         resave: true,
         saveUninitialized: true,
     }));
 
     passport.use(new GitHubStrategy({
-        clientID: "75e98565fb885d842b56",
+                clientID: "75e98565fb885d842b56",
         clientSecret: "7424e30131cb46de420fc3dbfb49df6375e80257",
         callbackURL: "http://localhost:3000/github/auth"
-        }, (accessToken, refreshToken, profile, done) => {
-            // Will be filled in later
-            // POSSIBLE REDIRECT TO HOME PAGE HERE !ELEVEN!
+            }, (accessToken, refreshToken, profile, done) => {
+                console.log(profile);
+                // Translate the github profile into a Blog user
+                models.User.findOrCreate({
+                    where: {
+                        github_id: profile.id
+                    },
+                    defaults: {
+                        github_id: profile.id,
+                        username: profile.username
+                    }
+                }).then(result => {
+                    // `findOrCreate` returns an array
+                    // The actual user instance is the 0th element in the array
+                    let user = result[0];
+        
+                    // Pass that to the `done` callback as the 2nd arg.
+                    // The 1st arg is reserved for any errors that occur.
+                    return done(null, user);
+                })
+                    .catch(err => {
+                        console.log('that did not work');
+        
+                        // If there was an error, pass that as 1st arg
+                        // And null as the 2nd arg (because there was no user retrieved
+                        // from the database);
+                        done(err, null);
+                    })
+        
             }));
+        
 
     passport.serializeUser(function(user, done) {
         done(null, user.id);
@@ -38,8 +66,10 @@ const setupAuth = (app) => {
 
         app.use(passport.session());
 
-        //
-        app.get('/login', passport.authenticate('github'));
+        app.get('/login', (req, res) => {
+            res.render ('login');
+        })
+        app.get('/login/github', passport.authenticate('github'));
         app.get('/logout', (req, res, next) => {
             res.logout();
             res.redirect('/');
