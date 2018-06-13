@@ -41,13 +41,44 @@ $(function(){
 	$('.movies-container').on('click', 'button', function(){
 		let imdbID = $(this).data('id');
 		$(this).html('Ain\'t Scene it');
-		$(this).toggleClass('btn-success');
+        $(this).toggleClass('btn-success').html('Added!');
+    });    
 		
 		let movie = movieData.find(function(currentMovie){
 			return currentMovie.imdbID == imdbID;	
 	});
 
-	// Add movie to table	
+    // Add movie to table	
+    //    - check to see if the movie is in the movie table, 
+    //   -if not, add to movie table
+    //  - if it does exist, do nothing
+
+    // - check to see if the movie is in the user table, 
+    //   -if not, add to user table
+    //  - if it does exist, alert ("Already added to your "Ain't Scene It" list")
+
+    connection.sync().then(function() {
+        Movie.create({
+            title: currentMovie.Title,
+            imdbID: currentMovie.imdbID,
+            mpaaRating: currentMovie.Rated,
+            released: currentMovie.Released,
+            runtime: currentMovie.Runtime,
+            genre: currentMovie.Genre,
+            director: currentMovie.Director,
+            writer: currentMovie.Writer,
+            actors: currentMovie.Actors,
+            plot: currentMovie.Plot,
+            poster: currentMovie.Poster,
+            imdbRating: currentMovie.imdbRating,
+        });
+    });
+
+
+
+
+
+
         
 
 
@@ -55,7 +86,8 @@ $(function(){
 	$('.movies-container').on('click', 'button', function(){
 		let imdbID = $(this).data('id');
 		$(this).html('Scene It');
-		$(this).toggleClass('btn-success');
+        $(this).toggleClass('btn-success').html('Added!');;
+    });    
 		
 		let movie = movieData.find(function(currentMovie){
 			return currentMovie.imdbID == imdbID;	
