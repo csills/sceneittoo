@@ -41,14 +41,14 @@ $(function(){
 	$('.movies-container').on('click', 'button', function(){
 		let imdbID = $(this).data('id');
 		$(this).html('Ain\'t Scene it');
-        $(this).toggleClass('btn-success').html('Added!');
+        
 
         $.post({
 			url: "localhost:3000/api/save",
 			data: {
 				title: currentMovie.Title,
-                imdbID: currentMovie.imdbID,
-                mpaaRating: currentMovie.Rated,
+                imdbid: currentMovie.imdbID,
+                mpaarating: currentMovie.Rated,
                 released: currentMovie.Released,
                 runtime: currentMovie.Runtime,
                 genre: currentMovie.Genre,
@@ -57,12 +57,11 @@ $(function(){
                 actors: currentMovie.Actors,
                 plot: currentMovie.Plot,
                 poster: currentMovie.Poster,
-                imdbRating: currentMovie.imdbRating,
+                imdbrating: currentMovie.imdbRating,
 			}
 		}, function( data ) {
-			console.log(data);  //'data' here is the data that was sent back from the server.
+			$(this).toggleClass('btn-success').html('Added!');  //'data' here is the data that was sent back from the server.
 		});
-
 
     });    
 		
@@ -71,17 +70,30 @@ $(function(){
 	});
 
     
-
-
-
     // Setting up the click listener on 'Scene It" button
 	$('.movies-container').on('click', 'button', function(){
 		let imdbID = $(this).data('id');
 		$(this).html('Scene It');
-        $(this).toggleClass('btn-success').html('Added!');
 
-        // Add movie to Usermovies table and Movies table if it doesn't already exists
-    	// Set "SceneItlist" to true
+        $.post({
+			url: "localhost:3000/api/save",
+			data: {
+				title: currentMovie.Title,
+                imdbid: currentMovie.imdbID,
+                mpaarating: currentMovie.Rated,
+                released: currentMovie.Released,
+                runtime: currentMovie.Runtime,
+                genre: currentMovie.Genre,
+                director: currentMovie.Director,
+                writer: currentMovie.Writer,
+                actors: currentMovie.Actors,
+                plot: currentMovie.Plot,
+                poster: currentMovie.Poster,
+                imdbrating: currentMovie.imdbRating,
+			}
+		}, function( data ) {
+			$(this).toggleClass('btn-success').html('Added!');  //'data' here is the data that was sent back from the server.
+		});
 
     });    
 		

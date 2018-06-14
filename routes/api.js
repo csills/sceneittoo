@@ -9,37 +9,46 @@ router.get('/', (req, res, next) => {
 
 /* POST data to Movies and Usermovies tables */
 router.post('/save', (req, res) => {
-    models.Movies.findOrCreate(
+    models.Movie.findOrCreate(
         {
             where: {
-                imdbID: currentMovie.imdbID,
-            }
-        },{
+                imdbid: req.body.imdbid,
+            },
             defaults: {
-                title: req.body.Title,
-                imdbID: req.body.imdbID,
-                mpaaRating: req.body.Rated,
-                released: req.body.Released,
-                runtime: req.body.Runtime,
-                genre: req.body.Genre,
-                director: req.body.Director,
-                writer: req.body.Writer,
-                actors: req.body.Actors,
-                plot: req.body.Plot,
-                poster: req.body.Poster,
-                imdbRating: req.body.imdbRating,
+                title: req.body.title,
+                imdbid: req.body.imdbid,
+                mpaarating: req.body.mpaarating,
+                released: req.body.released,
+                runtime: req.body.runtime,
+                genre: req.body.genre,
+                director: req.body.director,
+                writer: req.body.writer,
+                actors: req.body.actors,
+                plot: req.body.plot,
+                poster: req.body.poster,
+                imdbrating: req.body.imdbrating,
             }
         }
     )
     .then(movie => {
-        res.json(movie);
-    })
-    .then(movie => {
-        models.Usermovies.create({
-            sceneItlist: true,
-            wishlist: false,
-            UserId: req.user,
-            MovieId: movie.id
+        console.log(movie[0].id);
+        models.Usermovie.findOrCreate({
+            where: { 
+                UserId: req.user,
+                MovieId: movie[0].id 
+            },
+            defaults: {
+                sceneItlist: true,
+                wishlist: false,
+                UserId: req.user,
+                MovieId: movie[0].id
+            }
+        })
+        .then(usermovie => {
+            usermovie[0].sceneItlist = true;
+            usermovie[0].save().then( () => {
+                res.json(usermovie);
+            })
         });
     })
     .catch(err => {
