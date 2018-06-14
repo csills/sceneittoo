@@ -12,25 +12,26 @@ router.get('/', function(req, res, next) {
 router.get('/', function(req, res, next) {
     models.Usermovie.findAll({
         where: {
-            UserId: req.user
+            UserId: 1 //req.user
         },
         include: [
-            models.Movie,
+            models.movie,
+            models.user,
         ]
     })
     .then(usermovies => {
         res.render('sceneItList', {
         title: 'Scene It List',
         usermovies: usermovies,
-        // usermovies: [
-        //     {
-        //         sceneitlist: true,
-        //         wishlist: false,
-        //         movie: {
-
-        //         }
-        //     }
-        // ]
+            usermovies: [
+                {
+                   sceneitlist: true,
+                   wishlist: false,
+                   movie: {
+                       title: req.title,
+                   }
+               }
+           ]
         });
     })
 });

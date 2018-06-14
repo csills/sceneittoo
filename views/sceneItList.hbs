@@ -4,7 +4,7 @@
 
     <h3>Movies</h3>
         {{#each usermovies}}
-            <button type="button" class="btn btn-primary">Ain't Scene</button>
+            <button type="button" class="btn btn-primary">{{#if usermovies}}Ain't Scene{{#else}}Scene It{{/if}}</button>
             <button type="button" class="btn btn-primary">Scene It</button>
         {{/each}}
 </div>
