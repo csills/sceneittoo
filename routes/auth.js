@@ -2,7 +2,9 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser')
+
 const models = require('../models')
+
 
 const setupAuth = (app) => {
     // 1 set up cookie middleware
@@ -11,6 +13,7 @@ const setupAuth = (app) => {
     // 2 set up session middleware
     // ASK LACLAN ABOUT THIS SECURITY !ELEVEN!
     app.use(session({
+
         secret: 'ilywamh4p',
         resave: true,
         saveUninitialized: true,
@@ -65,6 +68,8 @@ const setupAuth = (app) => {
         app.use(passport.initialize());
 
         app.use(passport.session());
+
+
 
         app.get('/login', (req, res) => {
             res.render ('login');
