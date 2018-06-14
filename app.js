@@ -7,7 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const setupAuth = require('./routes/auth');
-
+const sceneItList = require('./routes/sceneItLIst');
 
 var app = express();
 
@@ -25,6 +25,7 @@ setupAuth(app);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/sceneItList', sceneItList);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
