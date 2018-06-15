@@ -28,8 +28,8 @@ $(function(){
 			finalHTML += '<div class="card-body">';
 			finalHTML += '<h5 class="card-title">'+ currentMovie.Title +'</h5>';
 			finalHTML += '<p class="card-text">'+ currentMovie.Year +'</p>';
-            finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Ain\'t Scene it</button>';
-            finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Scene It</button>';
+            finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn aintsceneit btn-primary">Ain\'t Scene it</button>';
+            finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn sceneit btn-primary">Scene It</button>';
 			finalHTML += '</div>';
 			finalHTML += '</div>';
 		});
@@ -38,68 +38,79 @@ $(function(){
 
 
 	// Setting up the click listener on 'Ain't Scene It" button
-	$('.movies-container').on('click', 'button', function(){
+	$('.movies-container').on('click', '.aintsceneit', function(){
 		let imdbID = $(this).data('id');
-		$(this).html('Ain\'t Scene it');
-        
-
-        $.post({
-			url: "localhost:3000/api/save",
-			data: {
-				title: currentMovie.Title,
-                imdbid: currentMovie.imdbID,
-                mpaarating: currentMovie.Rated,
-                released: currentMovie.Released,
-                runtime: currentMovie.Runtime,
-                genre: currentMovie.Genre,
-                director: currentMovie.Director,
-                writer: currentMovie.Writer,
-                actors: currentMovie.Actors,
-                plot: currentMovie.Plot,
-                poster: currentMovie.Poster,
-                imdbrating: currentMovie.imdbRating,
+		const button = $(this);
+        $.ajax({
+			url: "http://www.omdbapi.com/?apikey=4c39544b&i=" + imdbID,
+			method: "GET",
+			success: function(currentMovie){
+				$.post({
+					url: "http://localhost:3000/api/save",
+					data: {
+						title: currentMovie.Title,
+						imdbid: currentMovie.imdbID,
+						mpaarating: currentMovie.Rated,
+						released: currentMovie.Released,
+						runtime: currentMovie.Runtime,
+						genre: currentMovie.Genre,
+						director: currentMovie.Director,
+						writer: currentMovie.Writer,
+						actors: currentMovie.Actors,
+						plot: currentMovie.Plot,
+						poster: currentMovie.Poster,
+						imdbrating: currentMovie.imdbRating,
+					}
+				}, function( data ) {
+					button.toggleClass('btn-success').html('Added!');  //'data' here is the data that was sent back from the server.
+				});
 			}
-		}, function( data ) {
-			$(this).toggleClass('btn-success').html('Added!');  //'data' here is the data that was sent back from the server.
 		});
+
 
     });    
 		
-		let movie = movieData.find(function(currentMovie){
-			return currentMovie.imdbID == imdbID;	
-	});
+	// 	let movie = movieData.find(function(currentMovie){
+	// 		return currentMovie.imdbID == imdbID;	
+	// });
 
     
     // Setting up the click listener on 'Scene It" button
-	$('.movies-container').on('click', 'button', function(){
+	$('.movies-container').on('click', '.sceneit', function(){
 		let imdbID = $(this).data('id');
-		$(this).html('Scene It');
+		const button = $(this);
 
-        $.post({
-			url: "localhost:3000/api/save",
-			data: {
-				title: currentMovie.Title,
-                imdbid: currentMovie.imdbID,
-                mpaarating: currentMovie.Rated,
-                released: currentMovie.Released,
-                runtime: currentMovie.Runtime,
-                genre: currentMovie.Genre,
-                director: currentMovie.Director,
-                writer: currentMovie.Writer,
-                actors: currentMovie.Actors,
-                plot: currentMovie.Plot,
-                poster: currentMovie.Poster,
-                imdbrating: currentMovie.imdbRating,
+        $.ajax({
+			url: "http://www.omdbapi.com/?apikey=4c39544b&i=" + imdbID,
+			method: "GET",
+			success: function(currentMovie){
+				$.post({
+					url: "http://localhost:3000/api/save",
+					data: {
+						title: currentMovie.Title,
+						imdbid: currentMovie.imdbID,
+						mpaarating: currentMovie.Rated,
+						released: currentMovie.Released,
+						runtime: currentMovie.Runtime,
+						genre: currentMovie.Genre,
+						director: currentMovie.Director,
+						writer: currentMovie.Writer,
+						actors: currentMovie.Actors,
+						plot: currentMovie.Plot,
+						poster: currentMovie.Poster,
+						imdbrating: currentMovie.imdbRating,
+					}
+				}, function( data ) {
+					button.toggleClass('btn-success').html('Been there!');  //'data' here is the data that was sent back from the server.
+				});
 			}
-		}, function( data ) {
-			$(this).toggleClass('btn-success').html('Added!');  //'data' here is the data that was sent back from the server.
 		});
 
     });    
 		
-		let movie = movieData.find(function(currentMovie){
-			return currentMovie.imdbID == imdbID;	
-	});
+	// 	let movie = movieData.find(function(currentMovie){
+	// 		return currentMovie.imdbID == imdbID;	
+	// });
 
 
 });

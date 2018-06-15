@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
 });
 
 
-/* POST data to Movies and Usermovies tables - Sceneitlist button*/
+/* POST data to Movies and Usermovies tables - aintsceneit button*/
 router.post('/save', (req, res) => {
     models.Movie.findOrCreate(
         {
@@ -38,14 +38,14 @@ router.post('/save', (req, res) => {
                 MovieId: movie[0].id 
             },
             defaults: {
-                sceneItlist: true,
-                wishlist: false,
+                sceneitlist: false,
+                aintsceneyet: false,
                 UserId: req.user,
                 MovieId: movie[0].id
             }
         })
         .then(usermovie => {
-            usermovie[0].sceneItlist = true;
+            usermovie[0].aintsceneyet = true;
             usermovie[0].save().then( () => {
                 res.json(usermovie);
             })
@@ -62,7 +62,7 @@ router.post('/save', (req, res) => {
 });
 
 
-/* POST data to Movies and Usermovies tables - Wishlist button*/
+/* POST data to Movies and Usermovies tables - sceneit button*/
 router.post('/save', (req, res) => {
     models.Movie.findOrCreate(
         {
@@ -93,14 +93,14 @@ router.post('/save', (req, res) => {
                 MovieId: movie[0].id 
             },
             defaults: {
-                wishlist: true,
-                sceneItlist: false,
+                aintsceneyet: false,
+                sceneitlist: false,
                 UserId: req.user,
                 MovieId: movie[0].id
             }
         })
         .then(usermovie => {
-            usermovie[0].wishlist = true;
+            usermovie[0].sceneitlist = true;
             usermovie[0].save().then( () => {
                 res.json(usermovie);
             })
