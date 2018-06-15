@@ -28,5 +28,5 @@ npm install
 
 ### Screenshots
 
-![alt text](http://url/to/img.png)
+Coming soon!
 
