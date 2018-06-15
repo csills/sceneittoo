@@ -31,8 +31,20 @@ body {
 	width: 300px;
 } 
 
+.btn {
+	padding: 10px;
+}
+
 img {
 	height: 400px;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.link {
+	padding: 10px;
 }
 
 

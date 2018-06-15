@@ -1,2 +1,16 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Scene It Too?</h1>
+
+
+{{#if isLoggedIn}}
+<h4>Welcome Back {{user.github_id}}</h4>
+<a href="/search.html">go to search</a>
+
+{{/if}}
+
+{{#unless isLoggedIn}}
+<p>Greetings Fellow Movie Watchers</p>
+<a href="/login/github">login With GitHub</a>
+{{/unless}}
+
+
+<h6>I'm the index.hbs</h6>

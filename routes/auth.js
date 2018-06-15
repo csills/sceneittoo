@@ -7,11 +7,8 @@ const models = require('../models')
 
 
 const setupAuth = (app) => {
-    // 1 set up cookie middleware
     app.use(cookieParser());
 
-    // 2 set up session middleware
-    // ASK LACLAN ABOUT THIS SECURITY !ELEVEN!
     app.use(session({
 
         secret: 'ilywamh4p',
@@ -20,12 +17,12 @@ const setupAuth = (app) => {
     }));
 
     passport.use(new GitHubStrategy({
-                clientID: "75e98565fb885d842b56",
+        clientID: "75e98565fb885d842b56",
         clientSecret: "7424e30131cb46de420fc3dbfb49df6375e80257",
         callbackURL: "http://localhost:3000/github/auth"
             }, (accessToken, refreshToken, profile, done) => {
                 console.log(profile);
-                // Translate the github profile into a Blog user
+                // Translate the github profile into a user
                 models.User.findOrCreate({
                     where: {
                         github_id: profile.id
@@ -38,22 +35,21 @@ const setupAuth = (app) => {
                     // `findOrCreate` returns an array
                     // The actual user instance is the 0th element in the array
                     let user = result[0];
-        
+
                     // Pass that to the `done` callback as the 2nd arg.
                     // The 1st arg is reserved for any errors that occur.
                     return done(null, user);
                 })
                     .catch(err => {
                         console.log('that did not work');
-        
+
                         // If there was an error, pass that as 1st arg
                         // And null as the 2nd arg (because there was no user retrieved
                         // from the database);
                         done(err, null);
                     })
-        
+
             }));
-        
 
     passport.serializeUser(function(user, done) {
         done(null, user.id);
@@ -71,9 +67,9 @@ const setupAuth = (app) => {
 
 
 
-        app.get('/login', (req, res) => {
-            res.render ('login');
-        })
+        // app.get('/login', (req, res) => {
+        //     res.render ('login');
+        // })
         app.get('/login/github', passport.authenticate('github'));
         app.get('/logout', (req, res, next) => {
             res.logout();
@@ -87,19 +83,16 @@ const setupAuth = (app) => {
                 failureRedirect: '/login'
             }),
             (req, res) => {
-                res.redirect('/');
+                res.redirect('/search.html');
             }
         )
-
 }
-
 const ensureAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next();
     }
-    res.redirect('/login');
+    res.redirect('/search.html');
 }
-
 
 module.exports = setupAuth;
 module.exports.ensureAuthenticated = ensureAuthenticated;

@@ -1,8 +1,50 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: #88B9C3;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
 }
 
-a {
-  color: #00B7FF;
+.display-2 {
+	color: #2D3244;
+	font-family: 'Passion One', serif;
+	font-size: 130px;
 }
+
+.col-12 {
+	margin-top: 30px;
+}
+
+.results {
+	margin-top: 20px;
+}
+
+.movies-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+}
+
+.card {
+	float: left;
+	margin: 10px;
+	width: 300px;
+} 
+
+.btn {
+	padding: 10px;
+}
+
+img {
+	height: 400px;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.link {
+	padding: 10px;
+}
+
+
