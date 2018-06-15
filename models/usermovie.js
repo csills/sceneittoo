@@ -1,8 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Usermovie = sequelize.define('Usermovie', {
-    sceneItlist: DataTypes.BOOLEAN,
-    wishlist: DataTypes.BOOLEAN
+    sceneitlist: DataTypes.BOOLEAN,
+    aintsceneyet: DataTypes.BOOLEAN
   }, {});
   Usermovie.associate = function(models) {
     // associations can be defined here
