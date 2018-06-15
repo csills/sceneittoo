@@ -1,2 +1,14 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Scene It Too?</h1>
+<p>Greetings Fellow Movie Watchers</p>
+
+{{#if isLoggedIn}}
+<a href="/search.html">go to search</a>
+<br>
+<a href="/logout">logout</a>
+{{/if}}
+
+{{#unless isLoggedIn}}
+<a href="/login">Go to Log In</a>
+{{/unless}}
+
+<h6>I'm the index.hbs</h6>
