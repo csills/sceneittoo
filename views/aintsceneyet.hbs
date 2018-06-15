@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<div class="aintsceneyet">
+    <span><h2>{{username}}</h2></span>
+
+    <h3>Movies</h3>
+        {{#each usermovies}}
+            <div class="card" style="width: 18rem";>
+                <img class="card-img-top" src="{{Movie.poster}}" alt="Movie Poster">
+                <div class="card-body">
+                    <h5 class="card-title">{{Movie.title}}</h5>
+                    <p class="card-text">{{Movie.released}}</p>
+                    <button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Remove</button>
+                    <button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Scene It</button>
+			    </div>
+			</div>
+        {{/each}}
+</div>
