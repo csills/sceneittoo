@@ -1,13 +1,14 @@
 <h1>Scene It Too?</h1>
-<p>Greetings Fellow Movie Watchers</p>
+
 
 {{#if isLoggedIn}}
+<h4>Welcome Back {{user.github_id}}</h4>
 <a href="/search.html">go to search</a>
-<br>
-<a href="/logout">logout</a>
+
 {{/if}}
 
 {{#unless isLoggedIn}}
+<p>Greetings Fellow Movie Watchers</p>
 <a href="/login/github">login With GitHub</a>
 {{/unless}}
 

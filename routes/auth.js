@@ -67,9 +67,9 @@ const setupAuth = (app) => {
 
 
 
-        app.get('/login', (req, res) => {
-            res.render ('login');
-        })
+        // app.get('/login', (req, res) => {
+        //     res.render ('login');
+        // })
         app.get('/login/github', passport.authenticate('github'));
         app.get('/logout', (req, res, next) => {
             res.logout();
@@ -83,7 +83,7 @@ const setupAuth = (app) => {
                 failureRedirect: '/login'
             }),
             (req, res) => {
-                res.redirect('/');
+                res.redirect('/search.html');
             }
         )
 }
@@ -91,7 +91,7 @@ const ensureAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
         return next();
     }
-    res.redirect('/login');
+    res.redirect('/search.html');
 }
 
 module.exports = setupAuth;
