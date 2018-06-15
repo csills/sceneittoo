@@ -65,9 +65,9 @@ $(function(){
 
     });    
 		
-		let movie = movieData.find(function(currentMovie){
-			return currentMovie.imdbID == imdbID;	
-	});
+	// 	let movie = movieData.find(function(currentMovie){
+	// 		return currentMovie.imdbID == imdbID;	
+	// });
 
     
     // Setting up the click listener on 'Scene It" button
@@ -97,9 +97,9 @@ $(function(){
 
     });    
 		
-		let movie = movieData.find(function(currentMovie){
-			return currentMovie.imdbID == imdbID;	
-	});
+	// 	let movie = movieData.find(function(currentMovie){
+	// 		return currentMovie.imdbID == imdbID;	
+	// });
 
 
 });
