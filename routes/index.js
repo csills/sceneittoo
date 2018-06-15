@@ -9,4 +9,11 @@ router.get('/', function(req, res, next) {
   });
 });
 
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.render('users', {
+    user: User.findById()
+  });
+});
+
 module.exports = router;
