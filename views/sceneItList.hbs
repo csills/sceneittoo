@@ -4,12 +4,17 @@
 
     <h3>Movies</h3>
         {{#each usermovies}}
-            <button type="button" class="btn btn-primary">{{#if usermovies}}Ain't Scene{{#else}}Scene It{{/if}}</button>
-            <button type="button" class="btn btn-primary">Scene It</button>
+            <div class="card" style="width: 18rem";>
+			<img class="card-img-top" src="{{Movie.poster}}" alt="Movie Poster">
+			<div class="card-body">
+			<h5 class="card-title">{{Movie.title}}</h5>
+			<p class="card-text">{{Movie.released}}</p>
+            <button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Ain\'t Scene it</button>
+            <button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Scene It</button>
+			</div>
+			</div>
         {{/each}}
 </div>
 
-<button type="button" class="btn btn-primary">Ain't Scene</button>
-<button type="button" class="btn btn-primary">Scene It</button>
 
 
