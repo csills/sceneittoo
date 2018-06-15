@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
 
 
 /* POST data to Movies and Usermovies tables - aintsceneit button*/
-router.post('/save', (req, res) => {
+router.post('/saveaintsceneit', (req, res) => {
     models.Movie.findOrCreate(
         {
             where: {
@@ -39,13 +39,13 @@ router.post('/save', (req, res) => {
             },
             defaults: {
                 sceneitlist: false,
-                aintsceneyet: false,
+                aintsceneit: false,
                 UserId: req.user,
                 MovieId: movie[0].id
             }
         })
         .then(usermovie => {
-            usermovie[0].aintsceneyet = true;
+            usermovie[0].aintsceneit = true;
             usermovie[0].save().then( () => {
                 res.json(usermovie);
             })
@@ -63,7 +63,7 @@ router.post('/save', (req, res) => {
 
 
 /* POST data to Movies and Usermovies tables - sceneit button*/
-router.post('/save', (req, res) => {
+router.post('/savesceneit', (req, res) => {
     models.Movie.findOrCreate(
         {
             where: {
@@ -93,7 +93,7 @@ router.post('/save', (req, res) => {
                 MovieId: movie[0].id 
             },
             defaults: {
-                aintsceneyet: false,
+                aintsceneit: false,
                 sceneitlist: false,
                 UserId: req.user,
                 MovieId: movie[0].id
