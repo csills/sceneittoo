@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   */
 
 
-// GET all of the Users "Scene It" movies 
+// GET all of the Users "Scene It" movies
 router.get('/', function(req, res, next) {
     models.Usermovie.findAll({
         where: {
