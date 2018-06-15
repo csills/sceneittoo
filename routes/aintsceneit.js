@@ -3,12 +3,12 @@ const router = express.Router();
 const models = require('../models');
 
 
-// GET all of the Users "Ain't Scene Yet" movies 
+// GET all of the Users "Ain't Scene It" movies 
 router.get('/', function(req, res, next) {
     models.Usermovie.findAll({
         where: {
             UserId: req.user,
-            aintsceneyet: true,
+            aintsceneit: true,
         },
         include: [
             models.Movie,
@@ -16,10 +16,10 @@ router.get('/', function(req, res, next) {
         ]
     })
 
-// RENDER the Users "Ain't Scene Yet" movies to aintsceneyet webpage
+// RENDER the Users "Ain't Scene It" movies to aintsceneit webpage
     .then(usermovies => {
-        res.render('aintsceneyet', {
-            title: 'Ain\'t Scene Yet List',
+        res.render('aintsceneit', {
+            title: 'Ain\'t Scene It List',
             usermovies: usermovies,
         });
     })

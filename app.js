@@ -12,7 +12,7 @@ var usersRouter = require('./routes/users');
 
 const setupAuth = require('./routes/auth');
 const sceneItList = require('./routes/sceneItLIst');
-const aintsceneyetRouter = require('./routes/aintsceneyet');
+const aintsceneitRouter = require('./routes/aintsceneit');
 const apiRouter = require('./routes/api');
 
 
@@ -35,7 +35,7 @@ app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/users', usersRouter);
 app.use('/sceneItList', sceneItList);
-app.use('/aintsceneyet', aintsceneyetRouter);
+app.use('/aintsceneit', aintsceneitRouter);
 
 
 
