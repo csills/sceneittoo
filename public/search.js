@@ -16,18 +16,18 @@ $(function(){
 			}
 		});
 
-		
+
 	});
 
     // Renders each movie card with the data
 	function renderMovies(movieArray) {
 		let finalHTML = "";
 		movieArray.forEach(function(currentMovie){
-			finalHTML += '<div class="card style="width: 18rem";>';
-			finalHTML += '<img class="card-img-top" src="' + currentMovie.Poster + '" alt="Movie Poster">';
+			finalHTML += '<div class="card box-space";>';
+			finalHTML += '<div class="fill"><img class="card-img-top" src="' + currentMovie.Poster + '" alt="Movie Poster"></div>';
 			finalHTML += '<div class="card-body">';
-			finalHTML += '<h5 class="card-title">'+ currentMovie.Title +'</h5>';
-			finalHTML += '<p class="card-text">'+ currentMovie.Year +'</p>';
+			finalHTML += '<span class="badge badge-dark inline">' + currentMovie.Year + '</span>';
+			finalHTML += '<h4 class="card-title">'+ currentMovie.Title +'</h4>';
             finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn aintsceneit btn-primary">Ain\'t Scene it</button>';
             finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn sceneit btn-primary">Scene It</button>';
 			finalHTML += '</div>';
@@ -68,13 +68,13 @@ $(function(){
 		});
 
 
-    });    
-		
+    });
+
 	// 	let movie = movieData.find(function(currentMovie){
-	// 		return currentMovie.imdbID == imdbID;	
+	// 		return currentMovie.imdbID == imdbID;
 	// });
 
-    
+
     // Setting up the click listener on 'Scene It" button
 	$('.movies-container').on('click', '.sceneit', function(){
 		let imdbID = $(this).data('id');
@@ -106,10 +106,10 @@ $(function(){
 			}
 		});
 
-    });    
-		
+    });
+
 	// 	let movie = movieData.find(function(currentMovie){
-	// 		return currentMovie.imdbID == imdbID;	
+	// 		return currentMovie.imdbID == imdbID;
 	// });
 
 

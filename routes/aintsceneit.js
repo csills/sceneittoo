@@ -3,7 +3,7 @@ const router = express.Router();
 const models = require('../models');
 
 
-// GET all of the Users "Ain't Scene It" movies 
+// GET all of the Users "Ain't Scene It" movies
 router.get('/', function(req, res, next) {
     models.Usermovie.findAll({
         where: {

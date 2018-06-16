@@ -1,26 +1,46 @@
-<h1>{{title}}</h1>
-<div class="sceneIt">
-    <span><h2>{{username}}</h2></span>
-    <h3>Movies</h3>
-        {{#each usermovies}}
-            <div class="card {{Movie.id}}" style="width: 18rem";>
-                <img class="card-img-top" src="{{Movie.poster}}" alt="Movie Poster">
-                <div class="card-body">
+<div class="container text-center">
+    <div class="starsbarstopper">
+        <img src="./images//sceneittoo_sceneit.png" alt=""/>
+    </div>
+<div>
+    <div class="minninav">
+        <a class="btn btn btn-outline-warning round" a href="/search.html" role="button">SEARCH</a>
+        <a class="btn btn btn-warning disabled round" href="/sceneItList" role="button">SCENE IT</a>
+        <a class="btn btn btn-outline-warning round" href="/aintsceneit" class="link" role="button">AIN'T SCENE IT YET</a>
+        <a class="btn btn btn-outline-warning round" href="/about.html" role="button">ABOUT</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 results">
+        <div class="movies-container">
+            {{#each usermovies}}
+                <div class="card box-space";>
+                    <img class="card-img-top" src="{{Movie.poster}}" alt="Movie Poster">
+                    <div class="card-body">
+                    <p class="adge badge-dark inline">{{Movie.released}}</p>
                     <h5 class="card-title">{{Movie.title}}</h5>
-                    <p class="card-text">{{Movie.released}}</p>
-                    <button id="remove" class="btn btn-primary">Remove</button>
-                    <button id="aintsceneit" class="btn btn-primary">Ain't Scene It</button>
+                    <button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Remove</button>
+                    <button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Ain't Scene It</button>
+                    </div>
                 </div>
-			</div>
-        {{/each}}
+            {{/each}}
+        </div>
+    </div>
 </div>
 
 {{! Click listener to toggle Scene It and Ain't Scene Yet buttons true/false}}
+<!--
 <script>
     $("#remove").click(function() {
         alert("Clicked");
     });
 </script>
+-->
 
-
-
+<script>
+$("#remove").on('click', function(){
+    UPDATE Usermovies
+    SET sceneitlist = !sceneitlist 
+    RETURNING *;});   
+</script>
