@@ -1,5 +1,3 @@
-<h1>Scene It Too?</h1>
-
 
 {{#if isLoggedIn}}
 <h4>Welcome Back {{user.github_id}}</h4>
@@ -8,9 +6,10 @@
 {{/if}}
 
 {{#unless isLoggedIn}}
-<p>Greetings Fellow Movie Watchers</p>
-<a href="/login/github">login With GitHub</a>
+	<div class="fitzlogin">
+		<img src="./images/sceneittoo.png"/>
+    </div>
+    <div class="loginbutton">
+		<a class="bbtn btn-warning btn-lg btn-block round" href="/login/github" role="button">LOGIN</a>
+    </div>
 {{/unless}}
-
-
-<h6>I'm the index.hbs</h6>

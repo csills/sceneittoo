@@ -9,46 +9,54 @@
 	<script src="search.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Passion+One" rel="stylesheet">
 	<link rel="stylesheet" href="./stylesheets/search.css" />
+	<link rel="stylesheet" href="./stylesheets/search.css" />
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-12 header text-center">
-				<h2 class="display-2">Scene It Too?</h2>
-				<p>Search for a movie. Add it to your Ain't Scene It Yet list or Scene It list.</p>
-				<a href="/aintsceneit" class="link">Ain't Scene It Yet</a>
-				<a href="/sceneItList" class="link">Scene It</a>
-				<a href="/about.html" class="link"> About</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 search">
 
-				<form id="search-form">
-					<div class="input-group input-group-lg">
-				      <input class="form-control search-bar" placeholder="Search for a movie...">
-				      <span class="input-group-btn">
-				        <button class="btn btn-primary" type="submit">Search</button>
-				      </span>
-				    </div>
-				</form>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 results">
 
-				<div class="movies-container">
-					
-					
-
+		<div "container text-center">
+				<div class="starsbarstopper">
+					<img src="images/sceneittoo.png" style="margin-bottom: 30px;"alt=""/>
 				</div>
+			</div>
+				<div class="minninav">
+					<a class="btn btn btn-warning disabled round" a href="/search.html" role="button">SEARCH</a>
+					<a class="btn btn btn-outline-warning round" href="/sceneItList" role="button">SCENE IT</a>
+					<a class="btn btn btn-outline-warning round" href="/aintsceneit" class="link" role="button">AIN'T SCENE IT YET</a>
+					<a class="btn btn btn-outline-warning round" href="/about.html" role="button">ABOUT</a>
+				</div>
+			</div>
 
+	<div class="container">
+			<div class="row">
+					<h4 class="col-12 search hFourSubhead ">Search for a movie. Add it to your Ain't Scene It Yet list or Scene It list.</h4>
+			</div>
+			<div class="row">
+				<div class="col-12 search">
+
+					<form id="search-form">
+						<div class="input-group input-group-lg">
+							<input class="form-control search-bar" placeholder="Search for a movie...">
+								<span class="input-group-btn">
+							<button class="btn btn-warning" type="submit">Search</button>
+							</span>
+						</div>
+						<div class=" m-4 text-center">
+
+					</div>
+
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 results">
+
+					<div class="movies-container">
+
+					</div>
+				</div>
 			</div>
 		</div>
 
-	</div>
-
-
-	
 </body>
 </html>
