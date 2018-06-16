@@ -6,12 +6,12 @@ body {
     text-align: center
 }
 
-.fitzlogin {
+/* .fitzlogin {
     margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .fitzlogin img {
     min-width: 500px;;
@@ -104,6 +104,9 @@ body {
     color: #fff;
 }
 
+.btn-primary {
+    margin: 4px;
+}
 .round {
 	border-radius: 54px;
 }
@@ -116,8 +119,6 @@ body {
     padding-bottom: auto;
 }
 
-/*    */
-
 body {
 	margin-top: 60px;
 }
@@ -129,7 +130,13 @@ body {
 
 .header h4 {
 	line-height: 2em;
-	/* margin-bottom: 30px; */
+	margin-bottom: 30px;
+}
+
+.hFourSubhead {
+    color: #fff;
+    margin-bottom: 40px;
+    margin=top: 20px;;
 }
 
 .header p {
