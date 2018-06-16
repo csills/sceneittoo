@@ -8,10 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      watchedlist: {
+      sceneitlist: {
         type: Sequelize.BOOLEAN
       },
-      wishlist: {
+      aintsceneit: {
         type: Sequelize.BOOLEAN
       },
       createdAt: {

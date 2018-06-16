@@ -1,4 +1,3 @@
-
 <div class="container text-center">
     <div class="starsbarstopper">
         <img src="./images//sceneittoo_sceneit.png" alt=""/>
@@ -30,5 +29,18 @@
     </div>
 </div>
 
+{{! Click listener to toggle Scene It and Ain't Scene Yet buttons true/false}}
+<!--
+<script>
+    $("#remove").click(function() {
+        alert("Clicked");
+    });
+</script>
+-->
 
-
+<script>
+$("#remove").on('click', function(){
+    UPDATE Usermovies
+    SET sceneitlist = !sceneitlist 
+    RETURNING *;});   
+</script>
