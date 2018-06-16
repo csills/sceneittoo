@@ -1,17 +1,29 @@
-<h1>{{title}}</h1>
-<div class="sceneIt">
-    <span><h2>{{username}}</h2></span>
-    <h3>Movies</h3>
-        {{#each usermovies}}
-            <div class="card {{Movie.id}}" style="width: 18rem";>
-                <img class="card-img-top" src="{{Movie.poster}}" alt="Movie Poster">
-                <div class="card-body">
-                    <h5 class="card-title">{{Movie.title}}</h5>
-                    <p class="card-text">{{Movie.released}}</p>
-                    <button id="remove" class="btn btn-primary">Remove</button>
-                    <button id="sceneit" class="btn btn-primary">Scene It</button>
-                </div>
-			</div>
-        {{/each}}
+{{!-- <div class="sceneIt"> --}}
+<div "container text-center">
+    <div class="starsbarstopper">
+        <img src="./images/sceneittoo_aintscenit.png" alt=""/>
+    </div>
+</div>
+    <div class="minninav">
+        <a class="btn btn btn-outline-warning round" a href="/search.html" role="button">SEARCH</a>
+        <a class="btn btn btn-outline-warning round" href="/sceneItList" role="button">SCENE IT</a>
+        <a class="btn btn btn-warning disabled round" href="/aintsceneit" class="link" role="button">AIN'T SCENE IT YET</a>
+        <a class="btn btn btn-outline-warning round" href="/about.html" role="button">ABOUT</a>
+    </div>
 </div>
 
+<div class="container>
+    <div class="sceneIt">
+        {{#each usermovies}}
+            <div class="card" style="width: 18rem";>
+                <img class="card-img-top" src="{{Movie.poster}}" alt="Movie Poster">
+                <div class="card-body">
+                <h5 class="card-title">{{Movie.title}}</h5>
+                <p class="card-text">{{Movie.released}}</p>
+                <button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Remove</button>
+                <button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Ain't Scene It</button>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
