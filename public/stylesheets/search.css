@@ -6,12 +6,17 @@ body {
     text-align: center
 }
 
-/* .fitzlogin {
+.fitzlogin {
     margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-} */
+}
+
+.littleFitz {
+    width: 100px;
+    margin: 50px;;
+}
 
 .fitzlogin img {
     min-width: 500px;;
@@ -19,19 +24,19 @@ body {
 }
 
 .fitztopper {
-    margin-top: 30px;
+    margin-top: -60px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .fitztopper img {
-    min-width: 150px;;
-    max-width: 250px;;
+    min-width: 300px;;
+    max-width: 500px;;
 }
 
 .starsbarstopper {
-    margin-top: 30px;
+    margin-top: -60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,8 +82,12 @@ body {
     font-weight: 700;
 }
 
+.littleSpace {
+    margin: 8px;
+}
+
 .btn.disabled, .btn:disabled {
-    color: #fff;
+    color: #333;;
     background-color: #FFAB32;
     border-color: #FFAB32;
 
@@ -136,7 +145,7 @@ body {
 .hFourSubhead {
     color: #fff;
     margin-bottom: 40px;
-    margin=top: 20px;;
+    margin-top: 20px;;
 }
 
 .header p {

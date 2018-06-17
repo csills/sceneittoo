@@ -28,8 +28,8 @@ $(function(){
 			finalHTML += '<div class="card-body">';
 			finalHTML += '<span class="badge badge-dark inline">' + currentMovie.Year + '</span>';
 			finalHTML += '<h4 class="card-title">'+ currentMovie.Title +'</h4>';
-            finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn aintsceneit btn-primary">Ain\'t Scene it</button>';
-            finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn sceneit btn-primary">Scene It</button>';
+            finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn aintsceneit btn-warning littleSpace round">Ain\'t Scene it</button>';
+            finalHTML += '<button data-id="'+ currentMovie.imdbID +'" class="btn sceneit btn-warning round">Scene It</button>';
 			finalHTML += '</div>';
 			finalHTML += '</div>';
 		});
