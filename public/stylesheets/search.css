@@ -3,7 +3,8 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #003b46;
-    text-align: center
+    text-align: center;
+    margin-top: 60px;
 }
 
 .fitzlogin {
@@ -15,12 +16,12 @@ body {
 
 .littleFitz {
     width: 100px;
-    margin: 50px;;
+    margin: 50px;
 }
 
 .fitzlogin img {
-    min-width: 500px;;
-    max-width: 700px;;
+    min-width: 500px;
+    max-width: 700px;
 }
 
 .fitztopper {
@@ -31,20 +32,21 @@ body {
 }
 
 .fitztopper img {
-    min-width: 300px;;
-    max-width: 500px;;
+    min-width: 300px;
+    max-width: 500px;
 }
 
 .starsbarstopper {
     margin-top: -60px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .starsbarstopper img {
-    min-width: 400px;;
-    max-width: 600px;;
+    width: 370px;
+    max-width: 400px;
 }
 
 .about {
@@ -69,7 +71,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 .btn {
@@ -87,7 +89,7 @@ body {
 }
 
 .btn.disabled, .btn:disabled {
-    color: #333;;
+    color: #333;
     background-color: #FFAB32;
     border-color: #FFAB32;
 
@@ -113,6 +115,17 @@ body {
     color: #fff;
 }
 
+.btn-outline-warning:hover, .btn-outline-warning:focus, .btn-outline-warning:active, .btn-outline-warning.active, .open > .dropdown-toggle.btn-outline-warning {
+    background: #FF8332;
+    color: #fff;
+}
+
+.btn-outline-warning:active, .btn-outline-warning.active {
+    background: #FF8332;
+    box-shadow: none;
+    color: #fff;
+}
+
 .btn-primary {
     margin: 4px;
 }
@@ -120,36 +133,23 @@ body {
 	border-radius: 54px;
 }
 
-.pageheader {
-    color: #fff;
-    font-size: 2em;
-    text-align: center;
-    padding-top: 60px;
-    padding-bottom: auto;
-}
-
-body {
-	margin-top: 60px;
-}
-
-.header h3 {
-	color: #DC4247;
-	font-weight: 600;
-}
-
-.header h4 {
-	line-height: 2em;
-	margin-bottom: 30px;
+.search {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hFourSubhead {
     color: #fff;
     margin-bottom: 40px;
-    margin-top: 20px;;
+    margin-top: 20px;
 }
 
-.header p {
-	color: #50524F;
+.sectionHeader {
+    color: #fff; /* Fallback for older browsers */
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+
 }
 
 .results {
@@ -173,6 +173,13 @@ body {
 }
 
 .movies-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+    align-content: center;
+}
+
+.movies-container2 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;

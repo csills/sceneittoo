@@ -2,18 +2,45 @@
     <div class="starsbarstopper">
         <img src="./images//sceneittoo_sceneit.png" alt=""/>
     </div>
-<div>
+</div>
     <div class="minninav">
-        <a class="btn btn btn-outline-warning round" a href="/search.html" role="button">SEARCH</a>
-        <a class="btn btn btn-warning disabled round" href="/sceneItList" role="button">SCENE IT</a>
-        <a class="btn btn btn-outline-warning round" href="/aintsceneit" class="link" role="button">AIN'T SCENE IT YET</a>
-        <a class="btn btn btn-outline-warning round" href="/about.html" role="button">ABOUT</a>
+        <a class="btn btn-outline-warning round" a href="/search.html" role="button">SEARCH</a>
+        <a class="btn btn-warning disabled round" href="/sceneItList" role="button">SCENE IT</a>
+        <a class="btn btn-outline-warning round" href="/aintsceneit" class="link" role="button">AIN'T SCENE IT YET</a>
+        <a class="btn btn-outline-warning round" href="/about.html" role="button">ABOUT</a>
     </div>
 </div>
 
+<!-- search movie area -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12 search">
+					<form id="search-form">
+						<div class="input-group input-group-lg">
+							<input class="form-control search-bar" placeholder="Search for a movie then add it to a list!">
+								<span class="input-group-btn">
+								<button class="btn btn-warning" type="submit">Search</button>
+								</span>
+						</div>
+						<div class=" m-4 text-center">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+<!-- populate search list -->
+    <div class="row">
+        <div class="col-12 results">
+            <div class="movies-container">
+            </div>
+        </div>
+    </div>
+
+<!-- populate scene it list -->
 <div class="row">
     <div class="col-12 results">
-        <div class="movies-container">
+        <div class="movies-container2">
             {{#each usermovies}}
                 <div class="card box-space";>
                     <img class="card-img-top" src="{{Movie.poster}}" alt="Movie Poster">
