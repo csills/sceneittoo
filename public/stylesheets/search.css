@@ -37,16 +37,15 @@ body {
 }
 
 .starsbarstopper {
-    margin-top: -60px;
-    margin-bottom: 10px;
+    margin-top: -50px;
+    margin-bottom: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .starsbarstopper img {
-    width: 370px;
-    max-width: 400px;
+    height: 200px;
 }
 
 .about {
