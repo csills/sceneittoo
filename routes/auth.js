@@ -3,7 +3,7 @@ const GitHubStrategy = require('passport-github').Strategy;
 const session = require('express-session');
 const cookieParser = require('cookie-parser')
 
-const models = require('../models')
+const models = require('./models')
 
 
 const setupAuth = (app) => {
@@ -19,7 +19,7 @@ const setupAuth = (app) => {
     passport.use(new GitHubStrategy({
         clientID: process.env.GITHUB_ID,
         clientSecret: process.env.GITHUB_SECRET,
-        callbackURL: `${process.env.APP_URL}/github/auth`
+        callbackURL: ${process.env.APP_URL}
             }, (accessToken, refreshToken, profile, done) => {
                 console.log(profile);
                 // Translate the github profile into a user
