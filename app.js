@@ -15,7 +15,7 @@ const sceneItList = require('./routes/sceneItLIst');
 const aintsceneitRouter = require('./routes/aintsceneit');
 const apiRouter = require('./routes/api');
 
-
+dotenv.load();
 var app = express();
 
 // view engine setup
