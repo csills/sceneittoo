@@ -19,7 +19,7 @@ const setupAuth = (app) => {
     passport.use(new GitHubStrategy({
         clientID: "75e98565fb885d842b56",
         clientSecret: "7424e30131cb46de420fc3dbfb49df6375e80257",
-        callbackURL: "https://sceneittoo.herokuapp.com/"
+        callbackURL: "https://sceneittoo.herokuapp.com/github/auth"
             }, (accessToken, refreshToken, profile, done) => {
                 console.log(profile);
                 // Translate the github profile into a user
