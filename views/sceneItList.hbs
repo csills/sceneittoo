@@ -1,27 +1,54 @@
 <div class="container text-center">
     <div class="starsbarstopper">
-        <img src="./images//sceneittoo_sceneit.png" alt=""/>
+        <img src="./images///2x/sceneItBanner@2x.png" alt=""/>
     </div>
-<div>
+</div>
     <div class="minninav">
-        <a class="btn btn btn-outline-warning round" a href="/search.html" role="button">SEARCH</a>
-        <a class="btn btn btn-warning disabled round" href="/sceneItList" role="button">SCENE IT</a>
-        <a class="btn btn btn-outline-warning round" href="/aintsceneit" class="link" role="button">AIN'T SCENE IT YET</a>
-        <a class="btn btn btn-outline-warning round" href="/about.html" role="button">ABOUT</a>
+        <a class="btn btn-outline-warning round" a href="/search.html" role="button">SEARCH IT!</a>
+        <a class="btn btn-warning disabled round" href="/sceneItList" role="button">SCENE IT!</a>
+        <a class="btn btn-outline-warning round" href="/aintsceneit" class="link" role="button">AIN'T SCENE IT!</a>
+        <a class="btn btn-outline-warning round" href="/about.html" role="button">INFO!</a>
     </div>
 </div>
 
+<!-- search movie area -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12 search">
+					<form id="search-form">
+						<div class="input-group input-group-lg">
+							<input class="form-control search-bar" placeholder="Search for a movie then add it to a list!">
+								<span class="input-group-btn">
+								<button class="btn btn-warning" type="submit">Search</button>
+								</span>
+						</div>
+						<div class=" m-4 text-center">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+<!-- populate search list -->
+    <div class="row">
+        <div class="col-12 results">
+            <div class="movies-container">
+            </div>
+        </div>
+    </div>
+
+<!-- populate scene it list -->
 <div class="row">
     <div class="col-12 results">
-        <div class="movies-container">
+        <div class="movies-container2">
             {{#each usermovies}}
                 <div class="card box-space";>
                     <img class="card-img-top" src="{{Movie.poster}}" alt="Movie Poster">
                     <div class="card-body">
                     <p class="adge badge-dark inline">{{Movie.released}}</p>
                     <h5 class="card-title">{{Movie.title}}</h5>
-                    <button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Remove</button>
-                    <button data-id="'+ currentMovie.imdbID +'" class="btn btn-primary">Ain't Scene It</button>
+                    <button data-id="'+ currentMovie.imdbID +'" class="btn btn-warning littleSpace round">Remove</button>
+                    <button data-id="'+ currentMovie.imdbID +'" class="btn btn-warning littleSpace round">Ain't Scene It</button>
                     </div>
                 </div>
             {{/each}}
@@ -29,18 +56,9 @@
     </div>
 </div>
 
-{{! Click listener to toggle Scene It and Ain't Scene Yet buttons true/false}}
-<!--
-<script>
-    $("#remove").click(function() {
-        alert("Clicked");
-    });
-</script>
--->
-
 <script>
 $("#remove").on('click', function(){
     UPDATE Usermovies
-    SET sceneitlist = !sceneitlist 
-    RETURNING *;});   
+    SET sceneitlist = !sceneitlist
+    RETURNING *;});
 </script>

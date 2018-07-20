@@ -1,13 +1,49 @@
 
 {{#if isLoggedIn}}
-<h4>Welcome Back {{user.github_id}}</h4>
-<a href="/search.html">go to search</a>
+		<div class="container text-center">
+			<div class="starsbarstopper">
+			<img src="./images///2x/mainBanner@2x.png" alt=""/>
+		</div>
+		</div>
+			<div class="minninav">
+				<a class="btn btn-warning disabled round" a href="/search.html" role="button">SEARCH IT!</a>
+				<a class="btn btn-outline-warning round" href="/sceneItList" role="button">SCENE IT!</a>
+				<a class="btn btn-outline-warning round" href="/aintsceneit" class="link" role="button">AIN'T SCENE IT!</a>
+				<a class="btn btn-outline-warning round" href="/about.html" role="button">INFO!</a>
+			</div>
+		</div>
 
+<!-- search movie area -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12 search">
+					<form id="search-form">
+						<div class="input-group input-group-lg">
+							<input class="form-control search-bar" placeholder="Search for a movie then add it to a list!">
+								<span class="input-group-btn">
+								<button class="btn btn-warning" type="submit">SEARCH</button>
+								</span>
+						</div>
+						<div class=" m-4 text-center">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+<!-- populate movie list -->
+			<div class="row">
+				<div class="col-12 results">
+					<div class="movies-container">
+					</div>
+				</div>
+			</div>
+		</div>
 {{/if}}
 
 {{#unless isLoggedIn}}
 	<div class="fitzlogin">
-		<img src="./images/sceneittoo.png"/>
+		<img src="./images///2x/mainBanner@2x.png"/>
     </div>
     <div class="loginbutton">
 		<a class="bbtn btn-warning btn-lg btn-block round" href="/login/github" role="button">LOGIN</a>

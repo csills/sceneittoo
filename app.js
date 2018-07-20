@@ -4,7 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
-const dotenv = require('dotenv');
 
 
 var indexRouter = require('./routes/index');
@@ -12,11 +11,11 @@ var usersRouter = require('./routes/users');
 
 
 const setupAuth = require('./routes/auth');
-const sceneItList = require('./routes/sceneItList');
+const sceneItList = require('./routes/sceneItLIst');
 const aintsceneitRouter = require('./routes/aintsceneit');
 const apiRouter = require('./routes/api');
 
-dotenv.load();
+
 var app = express();
 
 // view engine setup
