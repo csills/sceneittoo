@@ -76,7 +76,7 @@ $(function(){
 
 
     // Setting up the click listener on 'Scene It" button
-	$('.movies-container').on('click', '.sceneit', function(){
+	$('.movies-container').on('click', '.sceneItList', function(){
 		let imdbID = $(this).data('id');
 		const button = $(this);
 
