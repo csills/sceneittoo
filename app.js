@@ -11,7 +11,7 @@ var usersRouter = require('./routes/users');
 
 
 const setupAuth = require('./routes/auth');
-const sceneItList = require('./routes/sceneItLIst');
+const sceneItList = require('./routes/sceneItList');
 const aintsceneitRouter = require('./routes/aintsceneit');
 const apiRouter = require('./routes/api');
 
