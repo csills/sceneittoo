@@ -46,7 +46,7 @@ $(function(){
 			method: "GET",
 			success: function(currentMovie){
 				$.post({
-					url: "https://sceneittoo.herokuapp.com/api/saveaintsceneit",
+					url: "https://sceneittoo.herokuapp.com/api/aintsceneit",
 					data: {
 						title: currentMovie.Title,
 						imdbid: currentMovie.imdbID,
@@ -85,7 +85,7 @@ $(function(){
 			method: "GET",
 			success: function(currentMovie){
 				$.post({
-					url: "https://sceneittoo.herokuapp.com/api/savesceneit",
+					url: "https://sceneittoo.herokuapp.com/api/sceneItList",
 					data: {
 						title: currentMovie.Title,
 						imdbid: currentMovie.imdbID,
